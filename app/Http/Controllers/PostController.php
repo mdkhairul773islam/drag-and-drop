@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
-use DB;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = DB::table('posts')->orderBy('order','ASC')->get();
+        $posts = Post::orderBy('order','ASC')->get();
         
         return view('post',compact('posts'));
     }
